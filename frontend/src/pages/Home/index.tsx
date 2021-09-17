@@ -3,8 +3,10 @@ import ScatterPlot from '../../components/ScatterPlot'
 const Home = () => {
    return (
       <>
-         <h1>Potency Curve</h1>
-         <ScatterPlot />
+         <div className="container">
+            <h1>Potency Curve</h1>
+            <ScatterPlot />
+         </div>
       </>
    )
 }
