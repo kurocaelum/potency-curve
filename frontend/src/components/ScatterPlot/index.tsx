@@ -7,10 +7,21 @@ const options = {
       type: 'scatter',
       zoomType: 'xy',
    },
-   series: [
-      femaleSeries,
-      maleSeries
-   ],
+   title: {
+      text: 'Curva de Potência',
+   },
+   xAxis: {
+      title: {
+         enabled: true,
+         text: 'Velocidade do vento (m/s)',
+      },
+   },
+   yAxis: {
+      title: {
+         text: 'Potência (kWh)',
+      },
+   },
+   series: [femaleSeries, maleSeries],
 }
 
 const ScatterPlot = () => {
