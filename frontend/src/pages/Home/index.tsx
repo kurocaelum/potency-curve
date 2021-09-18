@@ -9,10 +9,10 @@ const Home = () => {
             <form>
                <div className='row'>
                   <div className='col-md-5'>
-                     <input type='text' className='form-control' placeholder='Informe o nome da curva de potência' />
+                     <input type='text' className='form-control' placeholder='Informe o nome da curva de potência' required />
                   </div>
                   <div className='col-md-5'>
-                     <input type='file' className='form-control' accept=".csv" placeholder='Informe o arquivo para upload' />
+                     <input type='file' className='form-control' accept=".csv" placeholder='Informe o arquivo para upload' required />
                   </div>
                   <div className='col-md-2'>
                      <button className='btn btn-success'>Enviar</button>
