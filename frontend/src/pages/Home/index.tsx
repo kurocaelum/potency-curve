@@ -11,9 +11,8 @@ const Home = () => {
                   <div className='col-md-5'>
                      <input type='text' className='form-control' placeholder='Informe o nome da curva de potência' />
                   </div>
-                  {/* TODO input file */}
                   <div className='col-md-5'>
-                     <input type='text' className='form-control' placeholder='Informe o arquivo para upload' />
+                     <input type='file' className='form-control' accept=".csv" placeholder='Informe o arquivo para upload' />
                   </div>
                   <div className='col-md-2'>
                      <button className='btn btn-success'>Enviar</button>
