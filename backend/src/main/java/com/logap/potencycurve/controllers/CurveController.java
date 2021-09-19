@@ -23,4 +23,11 @@ public class CurveController {
 		List<Curve> list = service.findAll();
 		return ResponseEntity.ok(list);
 	}
+	
+	//TODO teste
+	@GetMapping(value = "/csv")
+	public ResponseEntity<List<String[]>> readCsv() {
+		List<String[]> csv = service.readCsv();
+		return ResponseEntity.ok(csv);
+	}
 }
