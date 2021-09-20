@@ -11,7 +11,10 @@ import org.springframework.stereotype.Service;
 
 import com.logap.potencycurve.entities.Curve;
 import com.logap.potencycurve.repositories.CurveRepository;
+import com.opencsv.CSVParser;
+import com.opencsv.CSVParserBuilder;
 import com.opencsv.CSVReader;
+import com.opencsv.CSVReaderBuilder;
 import com.opencsv.exceptions.CsvException;
 
 @Service
@@ -19,20 +22,23 @@ public class CurveService {
 
 	@Autowired
 	private CurveRepository curveRepository;
-	
+
 	public List<Curve> findAll() {
 		return curveRepository.findAll();
 	}
-	
-	//TODO read csv
+
+	// TODO TESTE read csv
 	public List<String[]> readCsv() {
+		String fileName = "static/Abr-2017-curva-potencia-windbox.csv";
 		ClassLoader classLoader = getClass().getClassLoader();
-				
-		try (CSVReader reader = new CSVReader(new FileReader(classLoader.getResource("static/Abr-2017-curva-potencia-windbox.csv").getFile()))) {
-		      List<String[]> r = reader.readAll();
-		      r.forEach(x -> System.out.println(Arrays.toString(x)));
-		      return r;
-		  } catch (FileNotFoundException e) {
+		CSVParser csvParser = new CSVParserBuilder().withSeparator(';').build();
+
+		try (CSVReader reader = new CSVReaderBuilder(new FileReader(classLoader.getResource(fileName).getFile()))
+				.withCSVParser(csvParser).withSkipLines(1).build()) {
+			List<String[]> r = reader.readAll();
+			r.forEach(x -> System.out.println(Arrays.toString(x)));
+			return r;
+		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 			return null;
@@ -46,6 +52,6 @@ public class CurveService {
 			return null;
 		}
 	}
-	
-	//TODO findById()
+
+	// TODO findById()
 }

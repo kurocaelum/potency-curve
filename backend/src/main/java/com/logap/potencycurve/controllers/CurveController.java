@@ -24,8 +24,8 @@ public class CurveController {
 		return ResponseEntity.ok(list);
 	}
 	
-	//TODO teste
-	@GetMapping(value = "/csv")
+	//TODO TESTE
+	@GetMapping(value = "/test")
 	public ResponseEntity<List<String[]>> readCsv() {
 		List<String[]> csv = service.readCsv();
 		return ResponseEntity.ok(csv);
