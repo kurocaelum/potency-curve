@@ -40,16 +40,7 @@ public class CurveService {
 			List<String[]> r = reader.readAll();
 			r.forEach(x -> System.out.println(Arrays.toString(x)));
 			return r;
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			return null;
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			return null;
-		} catch (CsvException e) {
-			// TODO Auto-generated catch block
+		} catch (IOException | CsvException e) {
 			e.printStackTrace();
 			return null;
 		}
@@ -69,7 +60,6 @@ public class CurveService {
 			        .parse();
 			return pairs;
 		} catch (IllegalStateException | FileNotFoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 			return null;
 		}
