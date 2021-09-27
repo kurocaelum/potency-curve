@@ -10,11 +10,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.logap.potencycurve.entities.Curve;
+import com.logap.potencycurve.entities.utils.Pair;
 import com.logap.potencycurve.repositories.CurveRepository;
 import com.opencsv.CSVParser;
 import com.opencsv.CSVParserBuilder;
 import com.opencsv.CSVReader;
 import com.opencsv.CSVReaderBuilder;
+import com.opencsv.bean.CsvToBeanBuilder;
 import com.opencsv.exceptions.CsvException;
 
 @Service
@@ -52,6 +54,26 @@ public class CurveService {
 			return null;
 		}
 	}
-
+	
+	// TODO TESTE read csv
+	public List<Pair> csvToPairs() {
+		String fileName = "static/Abr-2017-curva-potencia-windbox.csv";
+		ClassLoader classLoader = getClass().getClassLoader();
+		
+		try {
+			List<Pair> pairs = new CsvToBeanBuilder<Pair>(new FileReader(classLoader.getResource(fileName).getFile()))
+			        .withType(Pair.class)
+			        .withSeparator(';')
+			        .withSkipLines(1)
+			        .build()
+			        .parse();
+			return pairs;
+		} catch (IllegalStateException | FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return null;
+		}
+	}
+	
 	// TODO findById()
 }
