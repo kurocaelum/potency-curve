@@ -10,7 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.logap.potencycurve.entities.Curve;
-import com.logap.potencycurve.entities.utils.Pair;
+import com.logap.potencycurve.entities.Pair;
 import com.logap.potencycurve.repositories.CurveRepository;
 import com.opencsv.CSVParser;
 import com.opencsv.CSVParserBuilder;
@@ -28,7 +28,11 @@ public class CurveService {
 	public List<Curve> findAll() {
 		return curveRepository.findAll();
 	}
-
+	
+	public Curve save(Curve obj) {
+		return curveRepository.save(obj);
+	}
+	
 	// TODO TESTE read csv
 	public List<String[]> readCsv() {
 		String fileName = "static/Abr-2017-curva-potencia-windbox.csv";
@@ -47,7 +51,7 @@ public class CurveService {
 	}
 	
 	// TODO TESTE read csv
-	public List<Pair> csvToPairs() {
+	public List<Pair> csvToPairsTest() {
 		String fileName = "static/Abr-2017-curva-potencia-windbox.csv";
 		ClassLoader classLoader = getClass().getClassLoader();
 		
