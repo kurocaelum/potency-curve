@@ -14,7 +14,6 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.logap.potencycurve.entities.Curve;
-import com.logap.potencycurve.entities.Pair;
 import com.logap.potencycurve.services.CurveService;
 import com.logap.potencycurve.services.PairService;
 
@@ -45,19 +44,5 @@ public class CurveController {
 		
 		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(curve.getId()).toUri();
 		return ResponseEntity.created(uri).build();
-	}
-	
-	//TODO TESTE
-	@GetMapping(value = "/test")
-	public ResponseEntity<List<String[]>> readCsv() {
-		List<String[]> csv = curveService.readCsv();
-		return ResponseEntity.ok(csv);
-	}
-	
-	//TODO TESTE
-	@GetMapping(value = "/test1")
-	public ResponseEntity<List<Pair>> csvToPairs() {
-		List<Pair> pairs = curveService.csvToPairsTest();
-		return ResponseEntity.ok(pairs);
 	}
 }
