@@ -12,7 +12,7 @@ const Home = () => {
 
     await api.post('/curve', formData).then((res) => {
       console.log(res.data)
-      alert('File uploaded successfully.')
+      alert('Curva enviada com sucesso.')
     })
   }
 
@@ -40,6 +40,8 @@ const Home = () => {
         <div className='row my-4'>
           <div className='col-md-10'>
             <select className='form-select' aria-label='Default select example'>
+              {/* <option selected disabled>Nenhuma curva selecionada</option> */}
+              <option selected hidden>Nenhuma curva selecionada</option>
               <option value='1'>Curva de potência 1</option>
               <option value='2'>Curva de potência 2</option>
               <option value='3'>Curva de potência 3</option>
