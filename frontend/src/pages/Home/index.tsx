@@ -5,7 +5,6 @@ import api from '../../services/api'
 const Home = () => {
   const { register, handleSubmit } = useForm()
 
-  // TODO deconstruct data ({data} >> { name, file })
   const onSubmit = async (data: any) => {
     const formData = new FormData()
     formData.append('name', data.name)
