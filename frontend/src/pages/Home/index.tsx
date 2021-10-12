@@ -1,4 +1,6 @@
+import { useEffect, useRef } from 'react'
 import { useForm } from 'react-hook-form'
+import DropdownSelect from '../../components/DropdownSelect'
 import ScatterPlot from '../../components/ScatterPlot'
 import api from '../../services/api'
 
@@ -39,13 +41,7 @@ const Home = () => {
 
         <div className='row my-4'>
           <div className='col-md-10'>
-            <select className='form-select' aria-label='Default select example'>
-              {/* <option selected disabled>Nenhuma curva selecionada</option> */}
-              <option selected hidden>Nenhuma curva selecionada</option>
-              <option value='1'>Curva de potência 1</option>
-              <option value='2'>Curva de potência 2</option>
-              <option value='3'>Curva de potência 3</option>
-            </select>
+            <DropdownSelect />
           </div>
         </div>
 
