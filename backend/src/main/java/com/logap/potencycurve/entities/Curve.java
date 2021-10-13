@@ -1,6 +1,5 @@
 package com.logap.potencycurve.entities;
 
-import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -12,8 +11,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "tb_curves")
-public class Curve implements Serializable {
-	private static final long serialVersionUID = 1L;
+public class Curve {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

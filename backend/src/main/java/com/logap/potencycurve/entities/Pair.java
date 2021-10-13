@@ -1,7 +1,5 @@
 package com.logap.potencycurve.entities;
 
-import java.io.Serializable;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -14,8 +12,7 @@ import com.opencsv.bean.CsvBindByPosition;
 
 @Entity
 @Table(name = "tb_pairs")
-public class Pair implements Serializable {
-	private static final long serialVersionUID = 1L;
+public class Pair {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import com.logap.potencycurve.dto.CurveDTO;
 import com.logap.potencycurve.entities.Curve;
 import com.logap.potencycurve.services.CurveService;
 import com.logap.potencycurve.services.PairService;
@@ -28,8 +29,8 @@ public class CurveController {
 	private PairService pairService;
 	
 	@GetMapping
-	public ResponseEntity<List<Curve>> findAll() {
-		List<Curve> list = curveService.findAll();
+	public ResponseEntity<List<CurveDTO>> findAll() {
+		List<CurveDTO> list = curveService.findAll();
 		return ResponseEntity.ok(list);
 	}
 	
