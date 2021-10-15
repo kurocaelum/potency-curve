@@ -18,11 +18,11 @@ public class Pair {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	@CsvBindByPosition(position = 0)
-	private String first;
+	@CsvBindByPosition(position = 0, locale = "pt-BR")
+	private Double first;
 	
-	@CsvBindByPosition(position = 1)
-	private String second;
+	@CsvBindByPosition(position = 1, locale = "pt-BR")
+	private Double second;
 	
 	@ManyToOne
 	@JoinColumn(name = "curve_id")
@@ -31,17 +31,17 @@ public class Pair {
 	public Pair() {
 	}
 
-	public Pair(Curve curve, String first, String second) {
+	public Pair(Curve curve, Double first, Double second) {
 		this.curve = curve;
 		this.first = first;
 		this.second = second;
 	}
 
-	public String getFirst() {
+	public Double getFirst() {
 		return first;
 	}
 
-	public String getSecond() {
+	public Double getSecond() {
 		return second;
 	}
 
