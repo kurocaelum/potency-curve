@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -14,6 +15,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.logap.potencycurve.dto.CurveDTO;
+import com.logap.potencycurve.dto.PairDTO;
 import com.logap.potencycurve.entities.Curve;
 import com.logap.potencycurve.services.CurveService;
 import com.logap.potencycurve.services.PairService;
@@ -31,6 +33,12 @@ public class CurveController {
 	@GetMapping
 	public ResponseEntity<List<CurveDTO>> findAll() {
 		List<CurveDTO> list = curveService.findAll();
+		return ResponseEntity.ok(list);
+	}
+	
+	@GetMapping(value = "/{id}")
+	public ResponseEntity<List<PairDTO>> findAllById(@PathVariable Long id) {
+		List<PairDTO> list = pairService.findAllFromId(id);
 		return ResponseEntity.ok(list);
 	}
 	
