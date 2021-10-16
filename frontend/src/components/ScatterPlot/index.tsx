@@ -5,12 +5,10 @@ import { ChartData } from '../../types/curve'
 import { femaleSeries, maleSeries } from '../../utils/seriesMock'
 
 const ScatterPlot = () => {
-   const [chartData, setChartData] = useState<ChartData>({
-      name: '',
-      data: []
-   })
+   // const [chartData, setChartData] = useState<ChartData>({ data: [] })
+   const [chartData, setChartData] = useState<ChartData>({ data: [] })
    
-   // TODO options.title e option.series devem ser recebidos via props
+   // TODO option.series devem ser recebidos via props
    const options = {
       chart: {
          type: 'scatter',

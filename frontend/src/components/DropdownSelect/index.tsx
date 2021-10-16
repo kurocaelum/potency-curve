@@ -1,19 +1,23 @@
-import { useState } from 'react'
-import { ChartData } from '../../types/curve'
-import { femaleSeries, maleSeries } from '../../utils/seriesMock'
+import { useEffect, useState } from 'react'
+import api from '../../services/api'
+import { Curve } from '../../types/curve'
 
 const DropdownSelect = () => {
-  const [items, setItems] = useState([
-    { label: 'Nenhuma curva selecionada', value: 0 },
-    { label: 'Curva 1', value: 1 },
-    { label: 'Curva 2', value: 2 },
-  ])
+  const [items, setItems] = useState<Curve[]>([])
+
+  useEffect(() => {
+    api.get('/curve').then(res => {
+      const data = res.data as Curve[]
+      setItems(data)
+    })
+  }, [])
 
   return (
-    <select className='form-select' aria-label='Default select example'>
+    <select className='form-select' aria-label='Default select example' defaultValue='0'>
+      <option key='0' value='0' disabled>Selecione uma curva</option>
       {items.map((item) => (
-        <option key={item.value} value={item.value} selected={item.value === 0 ? true : false} hidden={item.value === 0 ? true : false}>
-          {item.label}
+        <option key={item.id} value={item.id}>
+          {item.name}
         </option>
       ))}
     </select>
