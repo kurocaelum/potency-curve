@@ -12,7 +12,6 @@ const Home = () => {
     formData.append('file', data.file[0])
 
     await api.post('/curve', formData).then((res) => {
-      console.log(res.data)
       // TODO Toast alert
       alert('Curva enviada com sucesso.')
     })
