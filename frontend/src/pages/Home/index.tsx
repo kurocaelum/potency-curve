@@ -1,4 +1,3 @@
-import { useEffect, useRef } from 'react'
 import { useForm } from 'react-hook-form'
 import DropdownSelect from '../../components/DropdownSelect'
 import ScatterPlot from '../../components/ScatterPlot'
@@ -14,6 +13,7 @@ const Home = () => {
 
     await api.post('/curve', formData).then((res) => {
       console.log(res.data)
+      // TODO Toast alert
       alert('Curva enviada com sucesso.')
     })
   }
