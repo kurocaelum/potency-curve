@@ -4,6 +4,5 @@ export type Pair = {
 }
 
 export type ChartData = {
-  name: string
   data: Pair[]
 }
