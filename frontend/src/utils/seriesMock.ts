@@ -1,6 +1,5 @@
-import { ChartData } from "../types/curve"
 
-export const femaleSeries: ChartData = {
+export const femaleSeries = {
    data: [
       [161.2, 51.6],
       [167.5, 59.0],
@@ -265,7 +264,7 @@ export const femaleSeries: ChartData = {
    ],
 }
 
-export const maleSeries: ChartData = {
+export const maleSeries = {
    data: [
       [174.0, 65.6],
       [175.3, 71.8],
