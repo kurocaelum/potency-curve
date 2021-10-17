@@ -14,6 +14,7 @@ const Home = () => {
     await api.post('/curve', formData).then((res) => {
       // TODO Toast alert
       alert('Curva enviada com sucesso.')
+      document.location.reload();
     })
   }
 
