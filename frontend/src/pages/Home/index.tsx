@@ -1,10 +1,16 @@
+import { useCallback, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import DropdownSelect from '../../components/DropdownSelect'
 import ScatterPlot from '../../components/ScatterPlot'
 import api from '../../services/api'
 
 const Home = () => {
+  const [id, setId] = useState(0)
   const { register, handleSubmit } = useForm()
+
+  const changeId = useCallback((delta) => {
+    setId(delta)
+  }, [setId])
 
   const onSubmit = async (data: any) => {
     const formData = new FormData()
@@ -41,12 +47,12 @@ const Home = () => {
 
         <div className='row my-4'>
           <div className='col-md-10'>
-            <DropdownSelect />
+            <DropdownSelect changeId={changeId} />
           </div>
         </div>
 
         <div className='mt-5'>
-          <ScatterPlot />
+          <ScatterPlot id={id}/>
         </div>
       </div>
     </>

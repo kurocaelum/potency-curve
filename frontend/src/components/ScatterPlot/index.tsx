@@ -9,13 +9,13 @@ type PairJson = {
    second: number
  }
 
-const ScatterPlot = () => {
-   // TODO receber id via props
-   const [id, setId] = useState(1)
+const ScatterPlot = (props: any) => {
+   // TODO renderizando 2x
+   console.log('Render...')
    const [chartData, setChartData] = useState<ChartData>({ data: [] })
 
    useEffect(() => {
-      api.get(`/curve/${id}`).then(response => {
+      api.get(`/curve/${props.id}`).then(response => {
          const data = response.data as PairJson[]
          
          const list: Pair[] = []
@@ -23,7 +23,7 @@ const ScatterPlot = () => {
          
          setChartData({ data: list })
       })
-   }, [id])
+   }, [props.id])
    
    const options = {
       chart: {
